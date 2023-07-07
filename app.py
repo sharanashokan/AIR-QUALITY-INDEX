@@ -20,9 +20,23 @@ def predict():
     input_data = [[so2, no2, rspm, spm]]
 
     # Perform prediction using the loaded model
-    prediction = model.predict(input_data)
+    prediction = model.predict(input_data)[0]
+    
+    # Assign prediction range and corresponding tag
+    if prediction <= 50:
+        prediction_range = "Good"
+    elif prediction <= 100:
+        prediction_range = "Satisfactory"
+    elif prediction <= 200:
+        prediction_range = "Moderate"
+    elif prediction <= 300:
+        prediction_range = "Poor"
+    elif prediction <= 400:
+        prediction_range = "Very Poor"
+    else:
+        prediction_range = "Severe"
 
-    return render_template('index.html', prediction=prediction)
+    return render_template('index.html', prediction=prediction, prediction_range=prediction_range)
 
 if __name__ == '__main__':
     app.run()
