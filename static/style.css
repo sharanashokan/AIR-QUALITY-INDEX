@@ -42,14 +42,14 @@ label {
 }
 
 input[type="number"] {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ffffff;
 }
 
 button[type="submit"] {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
